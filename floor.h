@@ -25,10 +25,10 @@ class Floor
 
 
 public:
-//    RoomBattle *r1;
+
     void enter(int);
     bool alive(int);
-//    Floor();
+
     Floor(QWidget *mp = 0, Pers *prs = 0,int x = 0, int flor = 0);
     bool exist(int);
     void floor1();
