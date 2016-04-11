@@ -10,22 +10,22 @@ Monster::Monster(int y, int x)
     if (y == 1)
     {
         hp = 45;
-        minatk = 2;
-        maxatk = 4;
-        exp = 10;
+        minatk = 6;
+        maxatk = 8;
+        exp = 12;
     }
     if (y == 2)
     {
         hp = 50;
         minatk = 10;
-        maxatk = 14;
-        exp = 12;
+        maxatk = 13;
+        exp = 13;
     }
     if (y == 3)
     {
         hp = 40;
-        minatk = 18;
-        maxatk = 25;
+        minatk = 13;
+        maxatk = 14;
         exp = 14;
     }
     hp += 50 * x;
