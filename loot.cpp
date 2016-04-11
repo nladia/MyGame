@@ -14,7 +14,7 @@ Loot::Loot(QWidget *parent, Pers *persb, int ex) :
 
 
 
-    ui->exp->setText(QString("Currect exp : %1").arg(exp));
+    ui->exp->setText(QString("Exp earned : %1").arg(exp));
     ui->min_p->setText(QString("MinAtk : %1").arg(pers->weap->weapmin()));
 
     ui->max_p->setText(QString("MaxAtk : %1").arg(pers->weap->weapmin() + pers->weap->weapdif()));
