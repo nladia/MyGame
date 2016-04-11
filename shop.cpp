@@ -55,7 +55,7 @@ void Shop::on_pushButton_2_clicked()
     }
 }
 
-void Shop::showEvent()
+void Shop::showEvent( QShowEvent * event)
 {
     ui->exp->setText(QString("currect exp : %1").arg(pers->expp()));
 }

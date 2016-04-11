@@ -2,6 +2,7 @@
 #define MAP_H
 
 #include <QMainWindow>
+#include <QPushButton>
 #include "floor.h"
 #include "shop.h"
 
@@ -18,6 +19,7 @@ class Map : public QMainWindow
     QWidget *par;
     Shop *shop;
     int floornum;
+    QPushButton *button[31];
 
 public:
     explicit Map(QWidget *parent = 0, Pers *prs = 0);
@@ -25,6 +27,10 @@ public:
     ~Map();
 
 private slots:
+    void bindbuttons();
+
+    void simplebutton(int i);
+
     void on_pushButton_31_clicked();
 
     void on_b8_clicked();

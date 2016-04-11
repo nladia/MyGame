@@ -18,7 +18,7 @@ class Shop : public QMainWindow
 
 public:
     explicit Shop(QWidget *parent = 0, Pers *prs = 0, bool weap = true, bool abil = false);
-    void showEvent();
+    void showEvent ( QShowEvent * event);
     bool weap();
     bool abil();
     ~Shop();
