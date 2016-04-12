@@ -28,7 +28,7 @@ class Floor : public QMainWindow
     int num;
 
 public:
-    void enter(int);
+    int enter(int);
     bool alive(int);
 
     Floor(QWidget *mp = 0, Pers *prs = 0, int flor = 0);

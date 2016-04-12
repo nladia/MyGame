@@ -45,6 +45,7 @@ void Map::hiden()
             button[i]->setText("Room");
         }
     }
+    ui->shop->hide();
 
 }
 
@@ -86,13 +87,25 @@ void Map::bindbuttons()
 
 void Map::simplebutton(int i)
 {
-    if (floor->alive(i))
+    int type;
+    type = floor->enter(i);
+
+
+
+
+    if (type == 1)
     {
-        floor->enter(i);
-        hide();
+
+            button[i]->setText("Cleared");
+            hide();
+
     }
 
-    button[i]->setText("Cleared");
+    if (type == 2)
+    {
+        button[i]->setText("Shop");
+        ui->shop->show();
+    }
 
     if ((i % 5 != 1) && (i-1 != 13))
         if (floor->exist(i-1))
@@ -108,7 +121,7 @@ void Map::simplebutton(int i)
             button[i+5]->show();
 }
 
-void Map::on_pushButton_clicked()
+void Map::on_shop_clicked()
 {
     shop->show();
     hide();

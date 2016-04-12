@@ -11,8 +11,8 @@ Floor::Floor(QWidget *mp, Pers *prs, int flor) :
     map = mp;
     floor = flor;
     createfloor();
-
     floor1();
+    ui->label->setText(QString("Currect HP : %1").arg(pers->hpp()));
 }
 
 Floor::~Floor()
@@ -28,18 +28,32 @@ Floor::~Floor()
 }
 
 
-void Floor::enter(int x)
+int Floor::enter(int x)
 {
     num = x;
-    show();
-}
 
+    if (rom1[num-1][0] == 2)
+    {
+        return 2;
+    }
+    if (rom1[num-1][0] == 1)
+    {
+        if (alive(x) == true)
+        {
+        show();
+        return 1;
+        }
+        else
+            return 0;
+
+    }
+}
 
 
 
 bool Floor::exist(int x)
 {
-    if (rom1[x-1][0] == true)
+    if (rom1[x-1][0] != 0)
         return true;
     else
         return false;
@@ -87,6 +101,8 @@ void Floor::floor1()
 
     rom1[16][0] = true;
     rom1[16][1] = 6;
+
+    rom1[21][0] = 2;
 }
 
 void Floor::createfloor()
@@ -107,6 +123,7 @@ void Floor::createfloor()
 
 void Floor::on_pushButton_clicked()
 {
+    if (rom1[num-1][0] == 1)
     switch (rom1[num-1][1])
     {
         case 1 : {r1->show(); break;}
@@ -119,6 +136,10 @@ void Floor::on_pushButton_clicked()
         case 8 : {r8->show(); break;}
         case 9 : {r9->show(); break;}
         case 10 : {r10->show(); break;}
+    }
+    if (rom1[num-1][0] == 2)
+    {
+        map->show();
     }
     hide();
 }

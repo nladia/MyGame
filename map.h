@@ -93,7 +93,7 @@ private slots:
 
     void on_b30_clicked();
 
-    void on_pushButton_clicked();
+    void on_shop_clicked();
 
 private:
     Ui::Map *ui;
