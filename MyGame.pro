@@ -45,4 +45,5 @@ FORMS    += startgame.ui \
     roombattle.ui \
     loot.ui \
     map.ui \
-    shop.ui
+    shop.ui \
+    floor.ui

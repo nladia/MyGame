@@ -1,55 +1,37 @@
 #include "floor.h"
+#include "ui_floor.h"
 
-/*
-Floor::Floor()
+Floor::Floor(QWidget *mp, Pers *prs, int flor) :
+    QMainWindow(mp),
+    ui(new Ui::Floor)
 {
+    ui->setupUi(this);
 
+    pers = prs;
+    map = mp;
+    floor = flor;
+    createfloor();
+
+    floor1();
 }
-*/
 
 Floor::~Floor()
 {
+    delete ui;
+
     delete r1;
     delete r2;
     delete r3;
     delete r4;
     delete r5;
     delete r6;
-    /*
-    delete r7;
-    delete r8;
-    delete r9;
-    delete r10;
-    */
-
 }
 
-Floor::Floor(QWidget *mp, Pers *prs, int x, int flor)
-{
-    pers = prs;
-    map = mp;
-    floor = flor;
-    createfloor(x);
-
-    floor1();
-
-}
 
 void Floor::enter(int x)
 {
-    switch (rom1[x-1][1])
-    {
-        case 1 : {r1->show(); break;}
-        case 2 : {r2->show(); break;}
-        case 3 : {r3->show(); break;}
-        case 4 : {r4->show(); break;}
-        case 5 : {r5->show(); break;}
-        case 6 : {r6->show(); break;}
-        case 7 : {r7->show(); break;}
-        case 8 : {r8->show(); break;}
-        case 9 : {r9->show(); break;}
-        case 10 : {r10->show(); break;}
-    }
+    num = x;
+    show();
 }
 
 
@@ -107,18 +89,36 @@ void Floor::floor1()
     rom1[16][1] = 6;
 }
 
-void Floor::createfloor(int x)
+void Floor::createfloor()
 {
-    r1 = new RoomBattle(map, x, pers, floor);
-    r2 = new RoomBattle(map, x+1, pers, floor);
-    r3 = new RoomBattle(map, x+1, pers, floor);
-    r4 = new RoomBattle(map, x+2, pers, floor);
-    r5 = new RoomBattle(map, x+2, pers, floor);
-    r6 = new RoomBattle(map, x+2, pers, floor);
+    r1 = new RoomBattle(map, 1, pers, floor);
+    r2 = new RoomBattle(map, 2, pers, floor);
+    r3 = new RoomBattle(map, 2, pers, floor);
+    r4 = new RoomBattle(map, 2, pers, floor);
+    r5 = new RoomBattle(map, 3, pers, floor);
+    r6 = new RoomBattle(map, 3, pers, floor);
     /*
     r7 = new RoomBattle(map, x, pers);
     r8 = new RoomBattle(map, x, pers);
     r9 = new RoomBattle(map, x, pers);
     r10 = new RoomBattle(map, x, pers);
     */
+}
+
+void Floor::on_pushButton_clicked()
+{
+    switch (rom1[num-1][1])
+    {
+        case 1 : {r1->show(); break;}
+        case 2 : {r2->show(); break;}
+        case 3 : {r3->show(); break;}
+        case 4 : {r4->show(); break;}
+        case 5 : {r5->show(); break;}
+        case 6 : {r6->show(); break;}
+        case 7 : {r7->show(); break;}
+        case 8 : {r8->show(); break;}
+        case 9 : {r9->show(); break;}
+        case 10 : {r10->show(); break;}
+    }
+    hide();
 }

@@ -15,7 +15,7 @@ Map::Map(QWidget *parent, Pers *prs) :
     bindbuttons();
     hiden();
 
-    floor = new Floor(this, pers, 1, floornum);
+    floor = new Floor(this, pers, floornum);
     shop = new Shop(this, pers, true, false);
 
     if (floor->exist(8))
@@ -45,67 +45,7 @@ void Map::hiden()
             button[i]->setText("Room");
         }
     }
-    /*
-    ui->b1->hide();
-    ui->b2->hide();
-    ui->b3->hide();
-    ui->b4->hide();
-    ui->b5->hide();
-    ui->b6->hide();
-    ui->b7->hide();
-    ui->b8->hide();
-    ui->b9->hide();
-    ui->b10->hide();
-    ui->b11->hide();
-    ui->b12->hide();
-    ui->b14->hide();
-    ui->b15->hide();
-    ui->b16->hide();
-    ui->b17->hide();
-    ui->b18->hide();
-    ui->b19->hide();
-    ui->b20->hide();
-    ui->b21->hide();
-    ui->b22->hide();
-    ui->b23->hide();
-    ui->b24->hide();
-    ui->b25->hide();
-    ui->b26->hide();
-    ui->b27->hide();
-    ui->b28->hide();
-    ui->b29->hide();
-    ui->b30->hide();
 
-    ui->b1->setText("Room");
-    ui->b2->setText("Room");
-    ui->b3->setText("Room");
-    ui->b4->setText("Room");
-    ui->b5->setText("Room");
-    ui->b6->setText("Room");
-    ui->b7->setText("Room");
-    ui->b8->setText("Room");
-    ui->b9->setText("Room");
-    ui->b10->setText("Room");
-    ui->b11->setText("Room");
-    ui->b12->setText("Room");
-    ui->b14->setText("Room");
-    ui->b15->setText("Room");
-    ui->b16->setText("Room");
-    ui->b17->setText("Room");
-    ui->b18->setText("Room");
-    ui->b19->setText("Room");
-    ui->b20->setText("Room");
-    ui->b21->setText("Room");
-    ui->b22->setText("Room");
-    ui->b23->setText("Room");
-    ui->b24->setText("Room");
-    ui->b25->setText("Room");
-    ui->b26->setText("Room");
-    ui->b27->setText("Room");
-    ui->b28->setText("Room");
-    ui->b29->setText("Room");
-    ui->b30->setText("Room");
-*/
 }
 
 void Map::bindbuttons()
@@ -181,7 +121,7 @@ void Map::on_pushButton_31_clicked()
     hiden();
     floornum++;
     ui->pushButton_31->setText(QString("NG+%1").arg(floornum + 1));
-    floor = new Floor(this, pers, 1, floornum);
+    floor = new Floor(this, pers, floornum);
     shop = new Shop(this, pers, rand() % 2 == 1, rand() % 2 == 1);
 
     if (floor->exist(8))
