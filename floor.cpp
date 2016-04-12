@@ -12,7 +12,7 @@ Floor::Floor(QWidget *mp, Pers *prs, int flor) :
     floor = flor;
     createfloor();
     floor1();
-    ui->label->setText(QString("Currect HP : %1").arg(pers->hpp()));
+
 }
 
 Floor::~Floor()
@@ -47,6 +47,7 @@ int Floor::enter(int x)
             return 0;
 
     }
+    return -1;
 }
 
 
@@ -142,4 +143,9 @@ void Floor::on_pushButton_clicked()
         map->show();
     }
     hide();
+}
+
+void Floor::showEvent(QShowEvent *event)
+{
+    ui->label->setText(QString("Currect HP : %1").arg(pers->hpp()));
 }

@@ -31,6 +31,7 @@ public:
     int enter(int);
     bool alive(int);
 
+
     Floor(QWidget *mp = 0, Pers *prs = 0, int flor = 0);
     bool exist(int);
     void floor1();
@@ -38,6 +39,7 @@ public:
     ~Floor();
 
 private slots:
+    void showEvent ( QShowEvent * event);
     void on_pushButton_clicked();
 
 private:
