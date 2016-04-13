@@ -30,8 +30,8 @@ void Loot::shop()
 
     weap = new Weapon(pers->gcls(), pers->levl() + 15);
 
-    ui->min_m->setNum(weap->weapmin());
-    ui->max_m->setNum(weap->weapmin() + weap->weapdif());
+    ui->min_m->setText(QString("MinAtk : %1").arg(weap->weapmin()));
+    ui->max_m->setText(QString("MinAtk : %1").arg(weap->weapmin() + weap->weapdif()));
 }
 
 Loot::~Loot()

@@ -147,5 +147,5 @@ void Floor::on_pushButton_clicked()
 
 void Floor::showEvent(QShowEvent *event)
 {
-    ui->label->setText(QString("Currect HP : %1").arg(pers->hpp()));
+    ui->label->setText(QString("HP : %1 / %2").arg(pers->hpp()).arg(pers->maxhpp()));
 }

@@ -306,3 +306,8 @@ void Map::on_b30_clicked()
 {
     simplebutton(30);
 }
+
+void Map::showEvent(QShowEvent * event)
+{
+    ui->label->setText(QString("HP : %1 / %2").arg(pers->hpp()).arg(pers->maxhpp()));
+}

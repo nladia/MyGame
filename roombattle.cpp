@@ -62,7 +62,7 @@ bool RoomBattle::alive()
 void RoomBattle::renew()
 {
     ui->monster_hp->setText(QString("HP : %1").arg(roomh->monstr->hpp()));
-    ui->pers_hp->setText(QString("HP : %1").arg(roomh->pers->hpp()));
+    ui->pers_hp->setText(QString("HP : %1 / %2").arg(pers->hpp()).arg(pers->maxhpp()));
     ui->mdmg->setText(QString("Damage : %1").arg(roomh->attkm()));
     ui->Pdmg->setText(QString("Damage : %1").arg(roomh->attkp()));
     ui->Roll->setText(QString("Roll : %1").arg(roomh->roll()));

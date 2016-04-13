@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     loot.cpp \
     map.cpp \
     floor.cpp \
-    shop.cpp
+    shop.cpp \
+    ability.cpp
 
 HEADERS  += startgame.h \
     pers.h \
@@ -37,7 +38,8 @@ HEADERS  += startgame.h \
     loot.h \
     map.h \
     floor.h \
-    shop.h
+    shop.h \
+    ability.h
 
 FORMS    += startgame.ui \
     startroom.ui \
@@ -46,4 +48,5 @@ FORMS    += startgame.ui \
     loot.ui \
     map.ui \
     shop.ui \
-    floor.ui
+    floor.ui \
+    ability.ui

@@ -76,6 +76,10 @@ int Room::battle()
    mdmg = (mdmg - modw) * moda1;
    pdmg = (pdmg + modr) * moda2;
 
+
+
+
+
    if (mdmg < 0)
        mdmg = 0;
    if (pdmg < 0)

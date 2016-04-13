@@ -28,10 +28,10 @@ Monster::Monster(int y, int x)
         maxatk = 14;
         exp = 14;
     }
-    hp += 50 * x;
-    minatk += 5 * x;
-    maxatk += 5 * x;
-    exp += 3*x;
+    hp += 52 * x;
+    minatk += 6 * x;
+    maxatk += 6 * x;
+    exp += 2*x;
 
 }
 

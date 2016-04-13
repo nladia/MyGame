@@ -11,6 +11,7 @@ class Pers
     int cls;
     int exp;
     int lvlexp;
+    int maxhp;
 
 public:
     Weapon *weap;
@@ -20,6 +21,9 @@ public:
     int attack();
     int levl();
     void dmg(int);
+    int maxhpp();
+    void incdmg(int);
+    void sethp(int);
     int hpp();
     void gexp(int);
     int gcls();
@@ -27,6 +31,8 @@ public:
     int minattk();
     int maxattk();
     int lvlupexp();
+    void heal(int x);
+
 };
 
 #endif // PERS_H

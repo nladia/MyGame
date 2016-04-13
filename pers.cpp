@@ -14,6 +14,7 @@ Pers::Pers(int x)
     {
         atk = 10;
         hp = 150;
+        maxhp = 150;
         lvl = 0;
         weap = new Weapon;
         weap->stndrt(x);
@@ -23,6 +24,7 @@ Pers::Pers(int x)
     {
         atk = 14;
         hp = 100;
+        maxhp = 100;
         lvl = 0;
         weap = new Weapon;
         weap->stndrt(x);
@@ -31,6 +33,7 @@ Pers::Pers(int x)
     {
         atk = 12;
         hp = 100;
+        maxhp = 100;
         lvl = 0;
         weap = new Weapon;
         weap->stndrt(x);
@@ -43,16 +46,19 @@ void Pers::levlup()
     if (x==1)
     {
         atk++;
+        maxhp+=50;
         hp+=50;
     }
     if (x==2)
     {
         atk+=2;
+        maxhp+=40;
         hp+=40;
     }
     if (x==3)
     {
         atk++;
+        maxhp+=40;
         hp+=40;
     }
     lvl++;
@@ -70,12 +76,21 @@ int Pers::levl()
 
 void Pers::dmg(int x)
 {
-    hp -= x;
+
+    if (hp - x <= maxhp)
+        hp -= x;
+    else
+        hp = maxhp;
 }
 
 int Pers::hpp()
 {
     return hp;
+}
+
+int Pers::maxhpp()
+{
+    return maxhp;
 }
 
 void Pers::gexp(int x)
@@ -106,4 +121,31 @@ int Pers::minattk()
 int Pers::lvlupexp()
 {
     return lvlexp;
+}
+
+void Pers::heal(int x)
+{
+    int pheal = maxhp / 10;
+    pheal *= x;
+
+    if (hp + pheal > maxhp)
+    {
+        hp = maxhp;
+    }
+
+    if (hp + pheal <= maxhp)
+    {
+    hp += pheal;
+    }
+
+}
+
+void Pers::incdmg(int x)
+{
+    atk += x;
+}
+
+void Pers::sethp(int x)
+{
+    hp = x;
 }

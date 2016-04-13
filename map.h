@@ -29,6 +29,8 @@ public:
 private slots:
     void bindbuttons();
 
+    void showEvent(QShowEvent * event);
+
     void simplebutton(int i);
 
     void on_pushButton_31_clicked();

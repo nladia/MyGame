@@ -62,7 +62,7 @@
        </sizepolicy>
       </property>
       <property name="text">
-       <string>1</string>
+       <string>lvlup</string>
       </property>
      </widget>
     </item>
@@ -75,7 +75,7 @@
        </sizepolicy>
       </property>
       <property name="text">
-       <string>Heal (4 exp)</string>
+       <string>Heal (10 exp)</string>
       </property>
      </widget>
     </item>
