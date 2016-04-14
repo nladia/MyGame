@@ -1,12 +1,12 @@
 #include "floor.h"
 #include "ui_floor.h"
 
-Floor::Floor(QWidget *mp, Pers *prs, int flor) :
+Floor::Floor(QWidget *mp, Pers *prs, int flor, Ability *abil) :
     QMainWindow(mp),
     ui(new Ui::Floor)
 {
     ui->setupUi(this);
-
+    ability = abil;
     pers = prs;
     map = mp;
     floor = flor;
@@ -108,12 +108,12 @@ void Floor::floor1()
 
 void Floor::createfloor()
 {
-    r1 = new RoomBattle(map, 1, pers, floor);
-    r2 = new RoomBattle(map, 2, pers, floor);
-    r3 = new RoomBattle(map, 2, pers, floor);
-    r4 = new RoomBattle(map, 2, pers, floor);
-    r5 = new RoomBattle(map, 3, pers, floor);
-    r6 = new RoomBattle(map, 3, pers, floor);
+    r1 = new RoomBattle(map, 1, pers, floor, ability);
+    r2 = new RoomBattle(map, 2, pers, floor, ability);
+    r3 = new RoomBattle(map, 2, pers, floor, ability);
+    r4 = new RoomBattle(map, 2, pers, floor, ability);
+    r5 = new RoomBattle(map, 3, pers, floor, ability);
+    r6 = new RoomBattle(map, 3, pers, floor, ability);
     /*
     r7 = new RoomBattle(map, x, pers);
     r8 = new RoomBattle(map, x, pers);
@@ -148,4 +148,11 @@ void Floor::on_pushButton_clicked()
 void Floor::showEvent(QShowEvent *event)
 {
     ui->label->setText(QString("HP : %1 / %2").arg(pers->hpp()).arg(pers->maxhpp()));
+}
+
+void Floor::on_pushButton_2_clicked()
+{
+    ability->remap(this);
+    ability->show();
+    hide();
 }

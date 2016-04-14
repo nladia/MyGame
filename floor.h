@@ -23,6 +23,7 @@ class Floor : public QMainWindow
     RoomBattle *r9;
     RoomBattle *r10;
     Pers *pers;
+    Ability *ability;
     int rom1[30][2];
     int floor;
     int num;
@@ -32,7 +33,7 @@ public:
     bool alive(int);
 
 
-    Floor(QWidget *mp = 0, Pers *prs = 0, int flor = 0);
+    Floor(QWidget *mp = 0, Pers *prs = 0, int flor = 0, Ability *abil = 0);
     bool exist(int);
     void floor1();
     void createfloor();
@@ -41,6 +42,8 @@ public:
 private slots:
     void showEvent ( QShowEvent * event);
     void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::Floor *ui;

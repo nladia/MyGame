@@ -15,7 +15,9 @@ Map::Map(QWidget *parent, Pers *prs) :
     bindbuttons();
     hiden();
 
-    floor = new Floor(this, pers, floornum);
+    ability = new Ability(this);
+
+    floor = new Floor(this, pers, floornum, ability);
     shop = new Shop(this, pers, true, false);
 
     if (floor->exist(8))
@@ -134,7 +136,7 @@ void Map::on_pushButton_31_clicked()
     hiden();
     floornum++;
     ui->pushButton_31->setText(QString("NG+%1").arg(floornum + 1));
-    floor = new Floor(this, pers, floornum);
+    floor = new Floor(this, pers, floornum, ability);
     shop = new Shop(this, pers, rand() % 2 == 1, rand() % 2 == 1);
 
     if (floor->exist(8))

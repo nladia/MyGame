@@ -1,6 +1,7 @@
 #ifndef PERS_H
 #define PERS_H
 #include "weapon.h"
+//#include "ability.h"
 
 
 class Pers
@@ -14,6 +15,7 @@ class Pers
     int maxhp;
 
 public:
+//    Ability *ability;
     Weapon *weap;
     Pers();
     Pers(int);

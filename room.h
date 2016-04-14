@@ -2,6 +2,7 @@
 #define ROOM_H
 #include "Pers.h"
 #include "monster.h"
+#include "ability.h"
 
 class Room
 {
@@ -12,9 +13,10 @@ class Room
 public:
     bool alive;
     Pers *pers;
+    Ability *ability;
     Monster *monstr;
     Room();
-    Room(int, Pers*, int);
+    Room(int, Pers*, int, Ability*);
     ~Room ();
     int battle();
     int attkp();

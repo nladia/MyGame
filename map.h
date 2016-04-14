@@ -5,6 +5,7 @@
 #include <QPushButton>
 #include "floor.h"
 #include "shop.h"
+#include "ability.h"
 
 
 namespace Ui {
@@ -16,6 +17,7 @@ class Map : public QMainWindow
     Q_OBJECT
     Floor *floor;
     Pers *pers;
+    Ability *ability;
     QWidget *par;
     Shop *shop;
     int floornum;

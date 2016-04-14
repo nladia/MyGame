@@ -2,14 +2,15 @@
 #include "ui_roombattle.h"
 
 
-RoomBattle::RoomBattle(QWidget *parent, int x, Pers *persb, int floor) :
+RoomBattle::RoomBattle(QWidget *parent, int x, Pers *persb, int floor, Ability *abil) :
     QMainWindow(parent),
     ui(new Ui::RoomBattle)
 {
+    ability = abil;
     pers = persb;
     ui->setupUi(this);
     par = parent;
-    roomh = new Room(x, persb, floor);
+    roomh = new Room(x, persb, floor, ability);
 
     renew();
 }

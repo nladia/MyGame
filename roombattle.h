@@ -16,10 +16,11 @@ class RoomBattle : public QMainWindow
     Room *roomh;
     QWidget *par;
     Pers *pers;
+    Ability *ability;
     Loot *lot;
 
 public:
-    explicit RoomBattle(QWidget *parent = 0, int x = 0, Pers *h = 0, int floor = 0);
+    explicit RoomBattle(QWidget *parent = 0, int x = 0, Pers *h = 0, int floor = 0, Ability *abil = 0);
     bool alive();
     ~RoomBattle();
 

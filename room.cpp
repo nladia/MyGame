@@ -5,8 +5,9 @@ Room::Room()
 
 }
 
-Room::Room(int x, Pers *h, int floor)
+Room::Room(int x, Pers *h, int floor, Ability *abil)
 {
+    ability = abil;
     pers = h;
     num = x;
     alive = true;
