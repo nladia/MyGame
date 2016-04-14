@@ -93,7 +93,7 @@
     <item row="6" column="0" colspan="2">
      <widget class="QPushButton" name="pushButton_2">
       <property name="enabled">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="sizePolicy">
        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -102,7 +102,7 @@
        </sizepolicy>
       </property>
       <property name="text">
-       <string>Exit(-30hp)</string>
+       <string>Использовать абилку</string>
       </property>
      </widget>
     </item>

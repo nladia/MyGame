@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout" rowstretch="1,1,1,1,1,1,1,2,2">
+   <layout class="QGridLayout" name="gridLayout" rowstretch="1,1,1,1,1,1,1,2,2" columnstretch="1,1,1,1,1">
     <property name="spacing">
      <number>15</number>
     </property>

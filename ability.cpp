@@ -62,6 +62,16 @@ Ability::~Ability()
 
 }
 
+void Ability::abilitybuy(int x, int y)
+{
+    if (x == 0)
+        crepasive(y);
+    if (x == 1)
+        creprebattle(y);
+    if (x == 2)
+        creinbattle(y);
+}
+
 void Ability::crepasive(int pas)
 {
     switch (pas)
@@ -210,6 +220,7 @@ void Ability::useability(int x, int y)
         inbatcd[y][2] = inbatcd[y][0];
         inbatcd[y][3] = inbatcd[y][1];
     }
+
 }
 
 bool Ability::abilityavailable(int x, int y)
@@ -225,7 +236,7 @@ bool Ability::abilityavailable(int x, int y)
     }
     if (x == 2)
     {
-        if ((inbatcd[y][2] == 0) && inbat[0] == true) k = true;
+        if ((inbatcd[y][2] == 0) && inbat[y] == true) k = true;
     }
     return k;
 }

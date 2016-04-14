@@ -30,6 +30,8 @@ class Ability : public QMainWindow
 public:
     explicit Ability(QWidget *parent = 0);
 
+    void abilitybuy(int x, int y);
+
     void remap(QWidget *parent = 0);
 
     ~Ability();

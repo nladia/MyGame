@@ -44,6 +44,9 @@ void RoomBattle::on_pushButton_2_clicked()
     par->show();
     hide();
     */
+    ability->remap(this);
+    ability->show();
+    hide();
 }
 
 void RoomBattle::winloot()

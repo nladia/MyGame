@@ -1,7 +1,7 @@
 #include "shop.h"
 #include "ui_shop.h"
 
-Shop::Shop(QWidget *parent, Pers *prs, bool weap, bool abil) :
+Shop::Shop(QWidget *parent, Pers *prs, bool weap, bool abil, Ability *abilit) :
     QMainWindow(parent),
     ui(new Ui::Shop)
 {
@@ -10,6 +10,7 @@ Shop::Shop(QWidget *parent, Pers *prs, bool weap, bool abil) :
     map = parent;
     weapon = weap;
     ability = abil;
+    abilki = abilit;
     ui->pushButton->hide();
     ui->pushButton_2->hide();
 
@@ -47,10 +48,13 @@ void Shop::on_pushButton_3_clicked()
 
 void Shop::on_pushButton_2_clicked()
 {
-    if (pers->expp() >= 40)
+    if (pers->expp() >= 4)
     {
-        pers->gexp(-40);
-
+        pers->gexp(0);
+        abilki->abilitybuy(rand() % 3, rand() % 5);
+        abilki->remap(this);
+        abilki->show();
+        hide();
 
     }
 }

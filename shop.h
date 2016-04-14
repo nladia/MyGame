@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "loot.h"
+#include "ability.h"
 
 namespace Ui {
 class Shop;
@@ -13,11 +14,12 @@ class Shop : public QMainWindow
     Q_OBJECT
     QWidget *map;
     Pers *pers;
+    Ability *abilki;
     bool weapon;
     bool ability;
 
 public:
-    explicit Shop(QWidget *parent = 0, Pers *prs = 0, bool weap = true, bool abil = false);
+    explicit Shop(QWidget *parent = 0, Pers *prs = 0, bool weap = true, bool abil = false, Ability *abilit = 0);
     void showEvent ( QShowEvent * event);
     bool weap();
     bool abil();
