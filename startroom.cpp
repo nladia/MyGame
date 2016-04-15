@@ -61,7 +61,7 @@ void StartRoom::renew()
 }
 
 
-void StartRoom::showEvent ( QShowEvent * event)
+void StartRoom::showEvent ( QShowEvent *)
 {
    renew();
 }
