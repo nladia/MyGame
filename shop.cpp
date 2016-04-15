@@ -52,14 +52,14 @@ void Shop::on_pushButton_2_clicked()
     {
         pers->gexp(0);
         abilki->abilitybuy(rand() % 3, rand() % 5);
-        abilki->remap(this);
+        abilki->remap(map, 0);
         abilki->show();
         hide();
 
     }
 }
 
-void Shop::showEvent( QShowEvent * event)
+void Shop::showEvent( QShowEvent * )
 {
     ui->exp->setText(QString("currect exp : %1").arg(pers->expp()));
 }

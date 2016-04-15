@@ -79,7 +79,7 @@ int Room::battle()
 
 
 
-
+    ability->battle(pers,monstr,pdmg,mdmg);
 
    if (mdmg < 0)
        mdmg = 0;

@@ -11,7 +11,8 @@ RoomBattle::RoomBattle(QWidget *parent, int x, Pers *persb, int floor, Ability *
     ui->setupUi(this);
     par = parent;
     roomh = new Room(x, persb, floor, ability);
-
+    firstturn = true;
+    win = 0;
     renew();
 }
 
@@ -22,10 +23,6 @@ RoomBattle::~RoomBattle()
 
 void RoomBattle::on_pushButton_clicked()
 {
-    int win;
-    win = roomh->battle();
-    renew();
-
     if (win == 1)
         {
             this->winloot();
@@ -36,26 +33,59 @@ void RoomBattle::on_pushButton_clicked()
         l->show();
         hide();
         }
+    if (win == 0)
+    {
+        win = roomh->battle();
+        renew();
+
+        if (win == 1)
+        {
+            ui->pushButton_2->hide();
+            ui->pushButton->setText("Победа");
+        }
+
+        if (win == -1)
+        {
+            ui->pushButton_2->hide();
+            ui->pushButton->setText("Ну бывает");
+        }
+    }
 }
 void RoomBattle::on_pushButton_2_clicked()
 {
-    /*
-    roomh->pers->dmg(30);
-    par->show();
-    hide();
-    */
-    ability->remap(this);
+    ability->remap(this, 2);
     ability->show();
     hide();
+
 }
 
 void RoomBattle::winloot()
 {
 
-    roomh->pers->gexp(roomh->monstr->gexp());
-    Loot *lot = new Loot(par, pers, roomh->monstr->gexp());
-    lot->show();
-    hide();
+     ability->useafterbattle(pers);
+     ability->cdprebattle();
+
+    if (ability->abilityavailable(0,2))
+    {
+        roomh->pers->gexp(roomh->monstr->gexp() / 3);
+        roomh->pers->gexp(roomh->monstr->gexp());
+
+
+
+        Loot *lot = new Loot(par, pers, roomh->monstr->gexp() + roomh->monstr->gexp() / 3);
+        lot->show();
+        hide();
+    }
+    else
+    {
+        roomh->pers->gexp(roomh->monstr->gexp());
+
+
+
+        Loot *lot = new Loot(par, pers, roomh->monstr->gexp());
+        lot->show();
+        hide();
+    }
 }
 
 bool RoomBattle::alive()
@@ -76,10 +106,20 @@ void RoomBattle::renew()
     ui->Maxatkp->setText(QString("MaxAttk : %1").arg(roomh->pers->maxattk()));
 }
 
-void RoomBattle::showEvent(QShowEvent *event)
+void RoomBattle::showEvent(QShowEvent *)
 {
-    renew();
-    ui->mdmg->setText(QString("Damage : 0"));
-    ui->Pdmg->setText(QString("Damage : 0"));
-    ui->Roll->setText(QString("Roll : 0"));
+    if (firstturn == false)
+        on_pushButton_clicked();
+
+    else
+    {
+        firstturn = false;
+        renew();
+        if (firstturn == true)
+        {
+            ui->mdmg->setText(QString("Damage : 0"));
+            ui->Pdmg->setText(QString("Damage : 0"));
+            ui->Roll->setText(QString("Roll : 0"));
+        }
+    }
 }

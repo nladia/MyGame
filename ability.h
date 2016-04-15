@@ -32,24 +32,30 @@ public:
 
     void abilitybuy(int x, int y);
 
-    void remap(QWidget *parent = 0);
+    void remap(QWidget *parent, int x);
+
+    void battle(Pers *pers, Monster *monster,int pdmg, int mdmg);
+
+    bool abilityavailable(int x, int y);
+
+
+    void cdprebattle();
+
+    void useafterbattle(Pers *pers);
+
+
 
     ~Ability();
 
 private slots:
-    void on_pushButton_16_clicked();
+
+    void on_pushButton_clicked();
 
 private:
-    void cdinbattle();
-    void cdprebattle();
-
-
-
-    void battle(Pers *pers, Monster *monster,int pdmg, int mdmg);
 
     void useability(int x, int y);
 
-    bool abilityavailable(int x, int y);
+    void cdinbattle();
 
     void showEvent(QShowEvent *event);
 
@@ -63,7 +69,7 @@ private:
     void usepassive(Monster *monster, int mdmg);
     void useinbattle(Pers *pers, Monster *monster,int pdmg, int mdmg);
     void useprebattle(Pers *pers, Monster *monster);
-    void useafterbattle(Pers *pers);
+
 
     Ui::Ability *ui;
 };

@@ -2,6 +2,7 @@
 #define ROOMBATTLE_H
 
 #include <QMainWindow>
+#include <QShowEvent>
 #include "room.h"
 #include "looser.h"
 #include "loot.h"
@@ -18,6 +19,8 @@ class RoomBattle : public QMainWindow
     Pers *pers;
     Ability *ability;
     Loot *lot;
+    bool firstturn;
+    int win;
 
 public:
     explicit RoomBattle(QWidget *parent = 0, int x = 0, Pers *h = 0, int floor = 0, Ability *abil = 0);

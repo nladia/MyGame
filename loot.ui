@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Loot</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout" rowstretch="2,1,1,2,1,1,2,3" columnstretch="1,1,2,4" rowminimumheight="0,0,0,0,0,0,0,0">

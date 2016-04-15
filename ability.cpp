@@ -54,6 +54,8 @@ Ability::Ability(QWidget *parent) :
     }
     bindbuttons();
     renew();
+
+    afterbattle = 0;
 }
 
 Ability::~Ability()
@@ -182,12 +184,14 @@ void Ability::useafterbattle(Pers *pers)
     if (prebat[1][0] == true && prebat[1][1] == true)
     {
         pers->incdmg(-1 * afterbattle);
+        afterbattle = 0;
         prebat[1][1] = false;
     }
 
     if (prebat[2][0] == true && prebat[2][1] == true)
     {
         pers->sethp(afterbattle);
+        afterbattle = 0;
         prebat[2][1] = false;
     }
 
@@ -270,7 +274,7 @@ void Ability::bindbuttons()
     button[15] = ui->b15;
 }
 
-void Ability::showEvent(QShowEvent *event)
+void Ability::showEvent(QShowEvent *)
 {
     renew();
 }
@@ -284,13 +288,22 @@ void Ability::battle(Pers *pers, Monster *monster, int pdmg, int mdmg)
     cdinbattle();
 }
 
-void Ability::remap(QWidget *parent)
+void Ability::remap(QWidget *parent, int x)
 {
     prebattlescr = parent;
+    if (x == 0)
+        ui->pushButton->setText("Назад");
+    if (x == 1)
+        ui->pushButton->setText("В бой!");
+    if (x == 2)
+        ui->pushButton->setText("Обычная атака");
+
 }
 
-void Ability::on_pushButton_16_clicked()
+void Ability::on_pushButton_clicked()
 {
     prebattlescr->show();
     hide();
 }
+
+

@@ -145,14 +145,27 @@ void Floor::on_pushButton_clicked()
     hide();
 }
 
-void Floor::showEvent(QShowEvent *event)
+void Floor::showEvent(QShowEvent *)
 {
     ui->label->setText(QString("HP : %1 / %2").arg(pers->hpp()).arg(pers->maxhpp()));
 }
 
 void Floor::on_pushButton_2_clicked()
 {
-    ability->remap(this);
+    if (rom1[num-1][0] == 1)
+    switch (rom1[num-1][1])
+    {
+        case 1 : {ability->remap(r1,1); break;}
+        case 2 : {ability->remap(r2,1); break;}
+        case 3 : {ability->remap(r3,1); break;}
+        case 4 : {ability->remap(r4,1); break;}
+        case 5 : {ability->remap(r5,1); break;}
+        case 6 : {ability->remap(r6,1); break;}
+        case 7 : {ability->remap(r7,1); break;}
+        case 8 : {ability->remap(r8,1); break;}
+        case 9 : {ability->remap(r9,1); break;}
+        case 10 : {ability->remap(r10,1); break;}
+    }
     ability->show();
     hide();
 }
